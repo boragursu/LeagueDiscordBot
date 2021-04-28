@@ -1,6 +1,9 @@
 from riotwatcher import LolWatcher, ApiError
-
-key= "RGAPI-44aadfb9-c5c4-474e-891f-03f567bdbd9d"
+def read_riotapi_token():
+    with open("tokens.txt" , "r") as f:
+        lines = f.readlines()
+        return lines[1].strip()
+key = read_riotapi_token()
 lol_watcher = LolWatcher(key)
 
 my_region = "tr1"
@@ -15,4 +18,4 @@ wins = int(ranked_stats[0]["wins"])
 losses = int(ranked_stats[0]["losses"])
 winrate = round((wins/(losses+wins)) * 100)
 
-print (f"Hello {summoner_name} your current season rank is {tier} {rank}, your current LP is {leaguepoint}, your current winrate is %{winrate}")
+output_player = f"Hello {summoner_name} your current season rank is {tier} {rank}, your current LP is {leaguepoint}, your current winrate is %{winrate}"
