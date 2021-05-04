@@ -30,3 +30,9 @@ def printOutPlayerData(inputted_name,my_region):
     winrate = round((wins/(losses+wins)) * 100)
     
     return f"Hello {summoner_name} your current season solo/duo queue rank is {tier} {rank}, your current LP is {leaguepoint}, your current winrate is %{winrate}"
+
+def showSummonerIcon(inputted_name,my_region):
+    me = lol_watcher.summoner.by_name(my_region, inputted_name)
+    profileIconID= me["profileIconId"]
+    profileIconPNG = f"https://ddragon.leagueoflegends.com/cdn/11.9.1/img/profileicon/{profileIconID}.png"
+    return profileIconPNG
