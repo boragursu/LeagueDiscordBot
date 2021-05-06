@@ -48,13 +48,13 @@ async def lolstat(ctx, inputted_name, my_region):
     embed_stat.set_thumbnail(url=summonericon)
     await ctx.send(embed=embed_stat)
 
-""" @lolflexstat.error
+@lolflexstat.error
 async def lolflexstat_error(ctx, error):
     if isinstance(error, discord.ext.commands.errors.CommandInvokeError):
         await ctx.send("Username not found in the selected region, doesn't exist or unranked in flex queue for more information about the command write .helplolflexstat")
- """
+ 
 
- @lolstat.error
+@lolstat.error
 async def lolstat_error(ctx, error):
     if isinstance(error, discord.ext.commands.errors.CommandInvokeError):
         await ctx.send("Username not found in the selected region, doesn't exist or unranked in solo/duo queue")
